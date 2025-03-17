@@ -3,6 +3,7 @@ import HomeView from "@/Views/HomeView.vue";
 import MovieDetails from "@/Views/MovieDetails.vue";
 import Register from "@/Views/Register.vue";
 import Login from "@/Views/Login.vue";
+import DefaultNavBar from "@/components/DefaultNavBar.vue";
 
 const router = createRouter({
     // history: createWebHistory(import.meta.env.VITE_API_BASE_URL),
@@ -10,13 +11,11 @@ const router = createRouter({
     routes : [
         {
             path:'/',
-            name:'home',
-            component:HomeView
-        },
-        {
-            path:'/movie/:id',
-            name:'movie',
-            component:MovieDetails
+            component:DefaultNavBar,
+            children:[
+                {path:'/', name:'HomeView', component:HomeView},
+                {path:'/movie/:id', name:'movie',component:MovieDetails},
+            ]
         },
         {
             path:'/register',

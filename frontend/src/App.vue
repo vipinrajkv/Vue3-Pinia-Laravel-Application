@@ -1,18 +1,25 @@
 <script setup>
-import NavBar from './components/NavBar.vue'
+import DefaultNavBar from './components/DefaultNavBar.vue'
 // import MovieList from './components/MovieList.vue'
 import { RouterView } from 'vue-router';
-import Footer from './Views/footer.vue';
+import { useAuthStore } from './stores/authStore';
+import { onMounted } from 'vue';
+// import Footer from './Views/footer.vue';
+const authStore = useAuthStore();
+onMounted (()=> {
+  authStore.getUser
+  console.log(authStore.getUser);
+})
 </script>
 
 <template>
-  <header>
-      <NavBar/>
-  </header>
+  <!-- <header>
+      <DefaultNavBar/>
+  </header> -->
   <main>
     <RouterView/>
   </main>
-  <Footer/>
+  <!-- <Footer/> -->
 </template>
 
 
