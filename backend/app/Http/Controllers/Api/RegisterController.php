@@ -106,7 +106,7 @@ class RegisterController extends Controller
      */
     public function logout(Request $request)
     {
-      $result = $request->user()->tokens()->delete();
-      return response()->json(['message' => 'Logged out successfully','response' => $result]);
+        $result = $request->user()->tokens()->delete();
+        return response()->json(['message' => 'Logged out successfully','response' => $result]);
     }
 }

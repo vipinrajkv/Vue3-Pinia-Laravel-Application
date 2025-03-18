@@ -17,4 +17,5 @@ Route::get('/movies', [MovieController::class, 'getAllMovies'])->name('movies-li
 Route::get('/movie/{id}', [MovieController::class, 'getMovie'])->name('get-movie');
 Route::post('/register',[RegisterController::class, 'registerUser'])->name('register');
 Route::post('/login', [RegisterController::class, 'login'])->name('login');
+Route::post('/logout', [RegisterController::class, 'logout'])->name('logout')->middleware('auth:sanctum');
 

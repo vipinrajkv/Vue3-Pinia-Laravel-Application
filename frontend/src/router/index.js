@@ -13,19 +13,21 @@ const router = createRouter({
             path:'/',
             component:DefaultNavBar,
             children:[
-                {path:'/', name:'HomeView', component:HomeView},
-                {path:'/movie/:id', name:'movie',component:MovieDetails},
+                {path:'/', name:'HomeView', component:HomeView, meta: true},
+                {path:'/movie/:id', name:'movie',component:MovieDetails, meta: true},
             ]
         },
         {
             path:'/register',
             name:'register',
-            component:Register
+            component:Register,
+            meta:{ guest : true}
         },
         {
             path:'/login',
             name:'login',
-            component:Login
+            component:Login,
+            meta:{ guest : true}
         }
     ]
 })

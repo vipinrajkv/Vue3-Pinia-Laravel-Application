@@ -6,10 +6,12 @@ import { useAuthStore } from './stores/authStore';
 import { onMounted } from 'vue';
 // import Footer from './Views/footer.vue';
 const authStore = useAuthStore();
-onMounted (()=> {
-  authStore.getUser
-  console.log(authStore.getUser);
-})
+
+// onMounted (async ()=> {
+//   console.log(authStore.getUser());
+//   const userData = await authStore.getUser();  
+// })
+
 </script>
 
 <template>
