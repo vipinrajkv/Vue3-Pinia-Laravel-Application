@@ -4,6 +4,7 @@ import MovieDetails from "@/Views/MovieDetails.vue";
 import Register from "@/Views/Register.vue";
 import Login from "@/Views/Login.vue";
 import DefaultNavBar from "@/components/DefaultNavBar.vue";
+import { useAuthStore } from "@/stores/authStore";
 
 const router = createRouter({
     // history: createWebHistory(import.meta.env.VITE_API_BASE_URL),
@@ -13,8 +14,8 @@ const router = createRouter({
             path:'/',
             component:DefaultNavBar,
             children:[
-                {path:'/', name:'HomeView', component:HomeView, meta: true},
-                {path:'/movie/:id', name:'movie',component:MovieDetails, meta: true},
+                {path:'/', name:'HomeView', component:HomeView, meta:{auth: true}},
+                {path:'/movie/:id', name:'movie',component:MovieDetails, meta:{auth: true}},
             ]
         },
         {
@@ -32,4 +33,17 @@ const router = createRouter({
     ]
 })
 
+
+router.beforeEach( async (to, from)=>{
+    const authStore = useAuthStore();
+    const userData = await authStore.getUser();  
+  
+    if (authStore.user && to.meta.guest) {
+        return {name:'HomeView'}
+    }
+
+    if (!authStore.user && to.meta.auth) {
+        return {name:'login'}
+    }
+});
 export default router;

@@ -48,9 +48,10 @@ const movieId = route.params.id
 console.log(movieId);
 onMounted(async() => {
     const result = await axiosInstance.get(`/movie/${route.params.id}`).then((response)=>{
-      console.log(response.data.data);
       movie.value = response.data.data;
       isLoading.value = false;
   })
 })
+
+
 </script>

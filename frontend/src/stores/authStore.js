@@ -23,11 +23,10 @@ export const useAuthStore = defineStore('authStore', {
             }
           });
           this.user = res.data;
-          console.log(res);
           return res.data;
         } catch (error) {
           console.error('Error fetching user:', error);
-          this.errors = error; // Store errors in state if needed
+          this.errors = error;
         }
       }
 
@@ -41,8 +40,7 @@ export const useAuthStore = defineStore('authStore', {
         const request = await axiosInstance.post(apiRoute, formData, config);
         const response = await request.data;
         this.userDetails = response;
-        console.log(response);
-        console.log(response.token);
+
         localStorage.setItem('token', response.token);
         this.router.push({ name: "HomeView" })
       } catch (error) {
@@ -50,27 +48,29 @@ export const useAuthStore = defineStore('authStore', {
         if (error.response?.data) {
           this.errors = error.response.data;
         }
-        console.log(this.errors);
       }
     },
 
     async logOut() {
       const token = localStorage.getItem('token');
       const config = token ? { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' } } : { headers: { 'Content-Type': 'multipart/form-data' } };
-      console.log(config);
+
       try {
         const request = await axiosInstance.post('logout', config);
         const response = await request.data;
-        console.log(response);
-        // console.log(response.token);
-        localStorage.setItem('token', response.token);
-        this.router.push({ name: "login" })
+        console.log(response.status);
+        if (response.status == true) {
+          localStorage.removeItem('token', token);
+          this.userDetails = null;
+          this.user = null;
+          this.errors = null;
+          this.router.push({ name: "login" })
+        }
       } catch (error) {
 
         if (error.response?.data) {
           this.errors = error.response.data;
         }
-        console.log(this.errors);
       }
     },
   },

@@ -11,12 +11,12 @@
                   <div>
                       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                       <input type="email" name="email" id="email" v-model="formData.email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
-                     <p v-if="errors.errors?.email" class="text-red-500 text-xs mt-2">{{ errors.errors.email[0] }}</p>
+                     <p v-if="errors?.errors?.email" class="text-red-500 text-xs mt-2">{{ errors.errors.email[0] }}</p>
                     </div>
                   <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                       <input type="password" name="password" id="password" v-model="formData.password"  placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <p v-if="errors.errors?.password" class="text-red-500 text-xs mt-2">{{ errors.errors.password[0] }}</p>
+                      <p v-if="errors?.errors?.password" class="text-red-500 text-xs mt-2">{{ errors.errors.password[0] }}</p>
                     </div>
                   <div class="flex items-center justify-between">
                       <div class="flex items-start">

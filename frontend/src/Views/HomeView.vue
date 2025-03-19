@@ -5,7 +5,7 @@ import MovieDetails from './MovieDetails.vue';
 </script>
 <template>
       <main>
-        <MovieList/>
+        <MovieList  limit="4" showButton ="true" />
         <MovieDetails/>
 
       </main>

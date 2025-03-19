@@ -18,7 +18,7 @@
               <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                 <span class="absolute -inset-1.5" />
                 <span class="sr-only">View notifications</span>
-                <BellIcon class="size-6" aria-hidden="true" />
+                <!-- <BellIcon class="size-6" aria-hidden="true" /> -->
               </button>
 
               <!-- Profile dropdown -->
@@ -58,9 +58,9 @@
         </div>
         <div class="border-t border-gray-700 pt-4 pb-3">
           <div class="flex items-center px-5">
-            <div class="shrink-0">
+            <!-- <div class="shrink-0">
               <img class="size-10 rounded-full" :src="user.imageUrl" alt="" />
-            </div>
+            </div> -->
             <div class="ml-3">
               <div class="text-base/5 font-medium text-white">{{ user.name }}</div>
               <div class="text-sm font-medium text-gray-400">{{ user.email }}</div>
@@ -78,11 +78,11 @@
       </DisclosurePanel>
     </Disclosure>
 
-    <header class="bg-white shadow-sm">
+    <div class="bg-white shadow-sm">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-center text-gray-900">Movies List</h1>
       </div>
-    </header>
+    </div>
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <RouterView/>
@@ -108,15 +108,13 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'About', href: '#', current: false },
+  { name: 'Contact', href: '#', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out123', href: '#', onClick : handleLogout  },
+  // { name: 'Your Profile', href: '#' },
+  // { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#', onClick : handleLogout  },
 ]
 </script>
