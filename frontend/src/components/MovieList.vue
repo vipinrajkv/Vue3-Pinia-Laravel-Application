@@ -66,7 +66,7 @@ const getShortDescription = (plot) => {
 
                 <p class="text-sm font-medium text-gray-900">{{ movie.released }}</p>
                 <p class="mt-4 text-gray-700">
-                {{ movie.plot }}
+                <!-- {{ movie.plot }} -->
                 <!-- Truncated or Full Description -->
                 {{ movie.fullDescription ? movie.plot : getShortDescription(movie.plot) }}
               </p>
@@ -74,8 +74,7 @@ const getShortDescription = (plot) => {
                 <button
                   v-if="movie.plot.length > 90"
                   @click="toggleDescription(movie.id)"
-                  class="text-blue-600 text-sm mt-2"
-                >
+                  class="text-blue-600 text-sm mt-2">
                   {{ movie.fullDescription ? 'View Less' : 'View More' }}
                 </button>
               </div>
